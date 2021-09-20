@@ -124,6 +124,31 @@ describe("UserSettings", () => {
     // Save is called with the correct arguments
     expect(onSave).toHaveBeenCalledWith(["1", "3"]);
   });
+
+  it("shows a saving message", async () => {
+    const savedUserPrefs = [];
+    const onSave = jest.fn().mockResolvedValue(true);
+    const wrap = shallow(
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
+    );
+
+    expect(wrap.find("button").text()).toEqual("Save");
+
+    wrap.find("form").simulate("submit", {
+      preventDefault: jest.fn(),
+    });
+
+    expect(wrap.find("button").text()).toEqual("Saving...");
+
+    // Flush promise queue
+    await Promise.resolve();
+
+    expect(wrap.find("button").text()).toEqual("Save");
+  });
 });
 
 function expectCheckbox(checkbox, id, name, checked) {

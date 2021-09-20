@@ -17,6 +17,8 @@ export const UserSettings: React.FC<Props> = ({
   onSave,
 }) => {
   const [checked, setChecked] = useState(preferences);
+  const [isSaving, setIsSaving] = useState(false);
+
   const handleChange = (e) => {
     const set = new Set(checked);
     if (e.target.checked) {
@@ -26,13 +28,16 @@ export const UserSettings: React.FC<Props> = ({
     }
     setChecked(Array.from(set.values()));
   };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    setIsSaving(true);
+    onSave(checked).then(() => {
+      setIsSaving(false);
+    });
+  };
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSave(checked);
-      }}
-    >
+    <form onSubmit={handleSave}>
       {options &&
         options.map((o) => (
           <label key={o.id}>
@@ -45,6 +50,9 @@ export const UserSettings: React.FC<Props> = ({
             />
           </label>
         ))}
+      <button type="submit" disabled={isSaving}>
+        {isSaving ? "Saving..." : "Save"}
+      </button>
     </form>
   );
 };
