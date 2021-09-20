@@ -3,6 +3,7 @@ import { useState } from "react";
 interface Props {
   options?: Option[];
   preferences: string[];
+  onSave(preferences: string[]): any;
 }
 
 interface Option {
@@ -10,7 +11,11 @@ interface Option {
   name: string;
 }
 
-export const UserSettings: React.FC<Props> = ({ options, preferences }) => {
+export const UserSettings: React.FC<Props> = ({
+  options,
+  preferences,
+  onSave,
+}) => {
   const [checked, setChecked] = useState(preferences);
   const handleChange = (e) => {
     const set = new Set(checked);
@@ -22,7 +27,12 @@ export const UserSettings: React.FC<Props> = ({ options, preferences }) => {
     setChecked(Array.from(set.values()));
   };
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSave(checked);
+      }}
+    >
       {options &&
         options.map((o) => (
           <label key={o.id}>

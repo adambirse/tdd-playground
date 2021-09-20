@@ -11,20 +11,30 @@ const options = [
 
 const savedUserPrefs = ["2", "3"];
 
+const onSave = jest.fn().mockResolvedValue(true);
+
 describe("UserSettings", () => {
   it("should render without throwing an error", function () {
-    shallow(<UserSettings preferences={savedUserPrefs} />);
+    shallow(<UserSettings preferences={savedUserPrefs} onSave={onSave} />);
   });
   it("should render labels", () => {
     const wrap = shallow(
-      <UserSettings options={options} preferences={savedUserPrefs} />
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
     );
     const labels = wrap.find("label");
     expect(labels.length).toBe(3);
   });
   it("should render correct label content", () => {
     const wrap = shallow(
-      <UserSettings options={options} preferences={savedUserPrefs} />
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
     );
     const labels = wrap.find("label");
     expectCheckbox(labels.at(0), "1", "Foo", false);
@@ -34,7 +44,11 @@ describe("UserSettings", () => {
 
   it("should save user preferences", () => {
     const wrap = shallow(
-      <UserSettings options={options} preferences={savedUserPrefs} />
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
     );
     const labels = wrap.find("label");
     expectCheckboxProp(labels.at(0), "checked", false);
@@ -44,7 +58,11 @@ describe("UserSettings", () => {
 
   it("should select checkbox on click", () => {
     const wrap = shallow(
-      <UserSettings options={options} preferences={savedUserPrefs} />
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
     );
     expect(
       wrap.find('input[type="checkbox"][value="1"]').prop("checked")
@@ -62,7 +80,11 @@ describe("UserSettings", () => {
 
   it("should deselect checkbox on click", () => {
     const wrap = shallow(
-      <UserSettings options={options} preferences={savedUserPrefs} />
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
     );
     expect(
       wrap.find('input[type="checkbox"][value="2"]').prop("checked")
@@ -76,6 +98,31 @@ describe("UserSettings", () => {
     expect(
       wrap.find('input[type="checkbox"][value="2"]').prop("checked")
     ).toEqual(false);
+  });
+  it("saves the user's settings on submit", () => {
+    // 1 is saved
+    const savedUserPrefs = ["1"];
+
+    const wrap = shallow(
+      <UserSettings
+        options={options}
+        preferences={savedUserPrefs}
+        onSave={onSave}
+      />
+    );
+    // Check option 3
+    wrap.find('input[type="checkbox"][value="3"]').simulate("change", {
+      target: {
+        value: "3",
+        checked: true,
+      },
+    });
+    // 1 and 3 are checked
+    wrap.find("form").simulate("submit", {
+      preventDefault: jest.fn(),
+    });
+    // Save is called with the correct arguments
+    expect(onSave).toHaveBeenCalledWith(["1", "3"]);
   });
 });
 
