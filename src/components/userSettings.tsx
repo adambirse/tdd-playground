@@ -1,13 +1,20 @@
 interface Props {
-  id?: string;
+  options?: Option[];
 }
 
-export const UserSettings: React.FC<Props> = ({ id }) => {
+interface Option {
+  id: string,
+  name: string
+}
+
+export const UserSettings: React.FC<Props> = ({ options }) => {
   return (
-    <>
-      <label>item 1</label>
-      <label>item 2</label>
-      <label>item 3</label>
-    </>
+    <form>
+      {options && options.map(o => (
+        <label key={o.id}>
+          <span>{o.name}</span>
+        </label>
+      ))}
+    </form>
   );
 };
