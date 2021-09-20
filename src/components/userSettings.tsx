@@ -12,7 +12,7 @@ interface Option {
 
 export const UserSettings: React.FC<Props> = ({ options, preferences }) => {
   const [checked, setChecked] = useState(preferences);
-  const handleChange = e => {
+  const handleChange = (e) => {
     const set = new Set(checked);
     if (e.target.checked) {
       set.add(e.target.value);

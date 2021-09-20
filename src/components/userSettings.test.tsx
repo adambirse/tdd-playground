@@ -46,30 +46,36 @@ describe("UserSettings", () => {
     const wrap = shallow(
       <UserSettings options={options} preferences={savedUserPrefs} />
     );
-    expect(wrap.find('input[type="checkbox"][value="1"]').prop('checked')).toEqual(false);
-    wrap.find('input[type="checkbox"][value="1"]').simulate('change', {
-        target: {
-          value: '1',
-          checked: true
-        }
-      });
-    expect(wrap.find('input[type="checkbox"][value="1"]').prop('checked')).toEqual(true);
-
+    expect(
+      wrap.find('input[type="checkbox"][value="1"]').prop("checked")
+    ).toEqual(false);
+    wrap.find('input[type="checkbox"][value="1"]').simulate("change", {
+      target: {
+        value: "1",
+        checked: true,
+      },
+    });
+    expect(
+      wrap.find('input[type="checkbox"][value="1"]').prop("checked")
+    ).toEqual(true);
   });
 
   it("should deselect checkbox on click", () => {
     const wrap = shallow(
       <UserSettings options={options} preferences={savedUserPrefs} />
     );
-    expect(wrap.find('input[type="checkbox"][value="2"]').prop('checked')).toEqual(true);
-    wrap.find('input[type="checkbox"][value="2"]').simulate('change', {
-        target: {
-          value: '2',
-          checked: false
-        }
-      });
-    expect(wrap.find('input[type="checkbox"][value="2"]').prop('checked')).toEqual(false);
-
+    expect(
+      wrap.find('input[type="checkbox"][value="2"]').prop("checked")
+    ).toEqual(true);
+    wrap.find('input[type="checkbox"][value="2"]').simulate("change", {
+      target: {
+        value: "2",
+        checked: false,
+      },
+    });
+    expect(
+      wrap.find('input[type="checkbox"][value="2"]').prop("checked")
+    ).toEqual(false);
   });
 });
 
