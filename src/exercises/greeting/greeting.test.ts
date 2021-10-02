@@ -10,5 +10,14 @@ describe('Greeting tests', () => {
     it('shout if name is upper case', () => {
         expect(greeting('JIM')).toEqual('HELLO, JIM!');
     })
+    it('say hello to two people', () => {
+        expect(greeting('Bob', 'Jim')).toEqual('Hello, Bob and Jim.');
+    })
+    it('say hello to more than two people', () => {
+        expect(greeting('Bob', 'Jim', 'Amy')).toEqual('Hello, Bob, Jim and Amy.');
+    })
+    it('say hello to many people', () => {
+        expect(greeting('Bob', 'Jim', 'Amy', 'Francis', 'Phoebe')).toEqual('Hello, Bob, Jim, Amy, Francis and Phoebe.');
+    })
+
 })
-export {}
