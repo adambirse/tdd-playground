@@ -1,8 +1,11 @@
 import { greeting } from "./greeting";
 
 describe('Greeting tests', () => {
-    it('hello world', () => {
+    it('hello bob', () => {
         expect(greeting("Bob")).toEqual('Hello, Bob.');
+    })
+    it('hello, default with value', () => {
+        expect(greeting()).toEqual('Hello, my friend.');
     })
 })
 export {}

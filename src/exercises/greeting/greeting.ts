@@ -1,3 +1,3 @@
 export const greeting = (name?: string) => {
-return `Hello, ${name}.`;
+return `Hello, ${name ? name : 'my friend'}.`;
 }
