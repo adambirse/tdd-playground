@@ -1,4 +1,4 @@
-import { greeting } from "./greeting";
+import { filter, filterLowerCase, filterUpperCase, greeting } from "./greeting";
 
 describe('Greeting tests', () => {
     it('hello bob', () => {
@@ -20,4 +20,14 @@ describe('Greeting tests', () => {
         expect(greeting('Bob', 'Jim', 'Amy', 'Francis', 'Phoebe')).toEqual('Hello, Bob, Jim, Amy, Francis and Phoebe.');
     })
 
+})
+
+describe('Filter', () => {
+    it('filter all uppercase', () => {
+        expect(filterUpperCase('lowercase', 'UPPERCASE', 'UPPERCASETOO')).toEqual(['UPPERCASE', 'UPPERCASETOO']);
+    })
+
+    it('filter all lowervase', () => {
+        expect(filterLowerCase('lowercase', 'lowercase2', 'UPPERCASE')).toEqual(['lowercase', 'lowercase2']);
+    })
 })
