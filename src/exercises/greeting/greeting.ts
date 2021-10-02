@@ -1,3 +1,9 @@
 export const greeting = (name?: string) => {
-return `Hello, ${name ? name : 'my friend'}.`;
-}
+  if (!name) {
+    return `Hello, my friend.`;
+  } else if (name === name.toUpperCase()) {
+    return `HELLO, ${name.toUpperCase()}!`;
+  } else {
+    return `Hello, ${name}.`;
+  }
+};

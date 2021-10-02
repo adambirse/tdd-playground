@@ -7,5 +7,8 @@ describe('Greeting tests', () => {
     it('hello, default with value', () => {
         expect(greeting()).toEqual('Hello, my friend.');
     })
+    it('shout if name is upper case', () => {
+        expect(greeting('JIM')).toEqual('HELLO, JIM!');
+    })
 })
 export {}
