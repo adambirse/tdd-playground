@@ -1,23 +1,26 @@
-export const greeting = (name?: string, ...additionalNames: string[]) => {
-  if (!name) {
+export const greeting = (...names: string[]) => {
+  if (names.length === 0) {
     return `Hello, my friend.`;
   }
 
-  const names = constructNames(name, additionalNames);
+  const greeting = constructNames(names);
 
-  if (names === names.toUpperCase()) {
-    return `HELLO, ${names.toUpperCase()}!`;
+  if (greeting === greeting.toUpperCase()) {
+    return `HELLO, ${greeting.toUpperCase()}!`;
   } else {
-    return `Hello, ${names}.`;
+    return `Hello, ${greeting}.`;
   }
 };
 
-const constructNames = (name: string, additionalNames: string[]) => {
-  let names = name;
+const constructNames = (additionalNames: string[]) => {
+  let names = "";
   if (additionalNames) {
     additionalNames.forEach((n, index) => {
       const isLastName = index === additionalNames.length - 1;
-      if (isLastName) {
+      const isFirstName = index === 0;
+      if (isFirstName) {
+        names = n;
+      } else if (isLastName) {
         names = names.concat(" and " + n);
       } else {
         names = names.concat(", " + n);
