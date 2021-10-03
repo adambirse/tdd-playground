@@ -37,22 +37,12 @@ const createMessage = (
   lowerCaseGreeting?: string,
   upperCaseGreeting?: string
 ) => {
-  const lowerCaseString = lowerCaseGreeting
-    ? `Hello, ${lowerCaseGreeting}.`
-    : "";
-
   if (lowerCaseGreeting && upperCaseGreeting) {
-    const upperCaseString = upperCaseGreeting
-      ? `HELLO ${upperCaseGreeting.toUpperCase()}!`
-      : "";
-    return `${lowerCaseString} AND ${upperCaseString}`;
+    return `Hello, ${lowerCaseGreeting}. AND HELLO ${upperCaseGreeting.toUpperCase()}!`;
   } else if (lowerCaseGreeting) {
-    return lowerCaseString;
+    return `Hello, ${lowerCaseGreeting}.`;
   } else {
-    const upperCaseString = upperCaseGreeting
-      ? `HELLO, ${upperCaseGreeting.toUpperCase()}!`
-      : "";
-    return upperCaseString;
+    return `HELLO, ${upperCaseGreeting.toUpperCase()}!`;
   }
 };
 
