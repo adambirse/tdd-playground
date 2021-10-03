@@ -3,7 +3,6 @@ import React from "react";
 
 import TODO from "./todo";
 
-
 describe("TODO page", () => {
   it("does render", () => {
     shallow(<TODO />);
