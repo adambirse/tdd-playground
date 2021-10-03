@@ -5,7 +5,7 @@ import { Layout } from "./layout";
 
 describe("Layout", () => {
   it("does render", () => {
-    shallow(<Layout title={"Page title"} />);
+    shallow(<Layout/>);
   });
   it("renders with default title", () => {
     const wrap = shallow(<Layout/>);
