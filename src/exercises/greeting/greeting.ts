@@ -6,9 +6,28 @@ export const greeting = (...names: string[]) => {
   const upperCaseNames = filterUpperCase(...names);
   const lowerCaseNames = filterLowerCase(...names);
 
-  const upperCaseGreeting = constructNames(upperCaseNames);
-  const lowerCaseGreeting = constructNames(lowerCaseNames);
+  const upperCaseGreeting = constructGreeting(upperCaseNames);
+  const lowerCaseGreeting = constructGreeting(lowerCaseNames);
 
+  return createMessage(lowerCaseGreeting, upperCaseGreeting);
+};
+
+export const filterUpperCase = (...values: string[]) => {
+  return values.filter((v) => {
+    return v === v.toUpperCase();
+  });
+};
+
+export const filterLowerCase = (...values: string[]) => {
+  return values.filter((v) => {
+    return v !== v.toUpperCase();
+  });
+};
+
+const createMessage = (
+  lowerCaseGreeting?: string,
+  upperCaseGreeting?: string
+) => {
   const lowerCaseString = lowerCaseGreeting
     ? `Hello, ${lowerCaseGreeting}.`
     : "";
@@ -28,33 +47,20 @@ export const greeting = (...names: string[]) => {
   }
 };
 
-export const filterUpperCase = (...values: string[]) => {
-  return values.filter((v) => {
-    return v === v.toUpperCase();
-  });
-};
-
-export const filterLowerCase = (...values: string[]) => {
-  return values.filter((v) => {
-    return v !== v.toUpperCase();
-  });
-};
-
-const constructNames = (additionalNames: string[]) => {
-  let names = "";
-  if (additionalNames) {
-    additionalNames.forEach((n, index) => {
-      const isLastName = index === additionalNames.length - 1;
+const constructGreeting = (names: string[]) => {
+  let greeting = "";
+  if (names) {
+    names.forEach((n, index) => {
+      const isLastName = index === names.length - 1;
       const isFirstName = index === 0;
       if (isFirstName) {
-        names = n;
+        greeting = n;
       } else if (isLastName) {
-        names = names.concat(" and " + n);
+        greeting = greeting.concat(" and " + n);
       } else {
-        names = names.concat(", " + n);
+        greeting = greeting.concat(", " + n);
       }
     });
   }
-
-  return names;
+  return greeting;
 };
