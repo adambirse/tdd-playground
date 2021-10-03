@@ -1,4 +1,4 @@
-import { shallow } from "enzyme";
+import {shallow } from "enzyme";
 import React from "react";
 
 import TODO from "./todo";
@@ -11,5 +11,8 @@ describe("TODO page", () => {
     const wrap = shallow(<TODO />);
     expect(wrap.find("h1").text()).toEqual("My TODOS");
   });
+  it("shows todo items", () => {
+    const wrap = shallow(<TODO />);
+    expect(wrap.find("li").length).toEqual(3);
+  });
 });
-export {};

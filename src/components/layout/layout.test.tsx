@@ -1,4 +1,4 @@
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 import React from "react";
 
 import { Layout } from "./layout";
@@ -16,8 +16,8 @@ describe("Layout", () => {
     expect(wrap.find("title").text()).toEqual("Page title");
   });
   it("renders children", () => {
-    const wrap = shallow(
-      <Layout title={"Page title"}>
+    const wrap = mount(
+      <Layout>
         <div>content</div>
       </Layout>
     );
