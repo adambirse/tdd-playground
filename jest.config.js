@@ -1,3 +1,3 @@
 module.exports = {
-  setupTestFrameworkScriptFile: "./setupTests.ts",
+  setupFilesAfterEnv: ["./setupTests.ts"],
 };
