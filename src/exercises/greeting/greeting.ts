@@ -2,6 +2,7 @@ export const greeting = (...names: string[]) => {
   if (names.length === 0) {
     return `Hello, my friend.`;
   }
+  names = removeCommas(...names);
 
   const upperCaseNames = filterUpperCase(...names);
   const lowerCaseNames = filterLowerCase(...names);

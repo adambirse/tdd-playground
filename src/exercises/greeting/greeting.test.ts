@@ -38,6 +38,11 @@ describe("Greeting tests", () => {
       "Hello, Amy, Charlotte and Francis. AND HELLO BRIAN, DAVID AND FRANK!"
     );
   });
+  it("Sanitise additional commas", () => {
+    expect(greeting("Bob", "Charlie, Dianne")).toEqual(
+      "Hello, Bob, Charlie and Dianne."
+    );
+  });
 });
 
 describe("Filter", () => {
