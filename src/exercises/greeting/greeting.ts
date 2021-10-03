@@ -3,12 +3,28 @@ export const greeting = (...names: string[]) => {
     return `Hello, my friend.`;
   }
 
-  const greeting = constructNames(names);
+  const upperCaseNames = filterUpperCase(...names);
+  const lowerCaseNames = filterLowerCase(...names);
 
-  if (greeting === greeting.toUpperCase()) {
-    return `HELLO, ${greeting.toUpperCase()}!`;
+  const upperCaseGreeting = constructNames(upperCaseNames);
+  const lowerCaseGreeting = constructNames(lowerCaseNames);
+
+  const lowerCaseString = lowerCaseGreeting
+    ? `Hello, ${lowerCaseGreeting}.`
+    : "";
+
+  if (lowerCaseGreeting && upperCaseGreeting) {
+    const upperCaseString = upperCaseGreeting
+      ? `HELLO ${upperCaseGreeting.toUpperCase()}!`
+      : "";
+    return `${lowerCaseString} AND ${upperCaseString}`;
+  } else if (lowerCaseGreeting) {
+    return lowerCaseString;
   } else {
-    return `Hello, ${greeting}.`;
+    const upperCaseString = upperCaseGreeting
+      ? `HELLO, ${upperCaseGreeting.toUpperCase()}!`
+      : "";
+    return upperCaseString;
   }
 };
 

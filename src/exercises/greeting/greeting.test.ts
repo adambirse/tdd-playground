@@ -21,6 +21,11 @@ describe("Greeting tests", () => {
       "Hello, Bob, Jim, Amy, Francis and Phoebe."
     );
   });
+  it("say hello separately to shouters and quiet people", () => {
+    expect(greeting("Amy", "BRIAN", "Charlotte")).toEqual(
+      "Hello, Amy and Charlotte. AND HELLO BRIAN!"
+    );
+  });
 });
 
 describe("Filter", () => {
@@ -31,7 +36,7 @@ describe("Filter", () => {
     ]);
   });
 
-  it("filter all lowervase", () => {
+  it("filter all lowercase", () => {
     expect(filterLowerCase("lowercase", "lowercase2", "UPPERCASE")).toEqual([
       "lowercase",
       "lowercase2",
