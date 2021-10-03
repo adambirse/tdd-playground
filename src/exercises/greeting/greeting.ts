@@ -13,15 +13,16 @@ export const greeting = (...names: string[]) => {
 };
 
 export const filterUpperCase = (...values: string[]) => {
-    return values.filter((v) => {
-        return v === v.toUpperCase()});
-}
+  return values.filter((v) => {
+    return v === v.toUpperCase();
+  });
+};
 
 export const filterLowerCase = (...values: string[]) => {
-    return values.filter((v) => {
-        return v !== v.toUpperCase()});
-}
-
+  return values.filter((v) => {
+    return v !== v.toUpperCase();
+  });
+};
 
 const constructNames = (additionalNames: string[]) => {
   let names = "";
