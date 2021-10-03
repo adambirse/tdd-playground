@@ -1,4 +1,9 @@
-import { filterLowerCase, filterUpperCase, greeting } from "./greeting";
+import {
+  filterLowerCase,
+  filterUpperCase,
+  greeting,
+  removeCommas,
+} from "./greeting";
 
 describe("Greeting tests", () => {
   it("hello bob", () => {
@@ -27,7 +32,9 @@ describe("Greeting tests", () => {
     );
   });
   it("say hello separately to many shouters and many quiet people", () => {
-    expect(greeting("Amy", "BRIAN", "Charlotte","DAVID", "Francis", "FRANK")).toEqual(
+    expect(
+      greeting("Amy", "BRIAN", "Charlotte", "DAVID", "Francis", "FRANK")
+    ).toEqual(
       "Hello, Amy, Charlotte and Francis. AND HELLO BRIAN, DAVID AND FRANK!"
     );
   });
@@ -45,6 +52,16 @@ describe("Filter", () => {
     expect(filterLowerCase("lowercase", "lowercase2", "UPPERCASE")).toEqual([
       "lowercase",
       "lowercase2",
+    ]);
+  });
+});
+
+describe("Sanitise Input", () => {
+  it("split input if contains a comma", () => {
+    expect(removeCommas("Bob", "Charlie, Dianne")).toEqual([
+      "Bob",
+      "Charlie",
+      "Dianne",
     ]);
   });
 });

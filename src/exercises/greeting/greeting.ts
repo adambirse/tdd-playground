@@ -24,6 +24,14 @@ export const filterLowerCase = (...values: string[]) => {
   });
 };
 
+export const removeCommas = (...values: string[]) => {
+  let results: string[] = [];
+  values.forEach((v) => {
+    results = results.concat(v.split(",").map((e) => e.trim()));
+  });
+  return results;
+};
+
 const createMessage = (
   lowerCaseGreeting?: string,
   upperCaseGreeting?: string
