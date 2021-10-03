@@ -7,6 +7,10 @@ describe("Layout", () => {
   it("does render", () => {
     shallow(<Layout title={"Page title"} />);
   });
+  it("renders with default title", () => {
+    const wrap = shallow(<Layout/>);
+    expect(wrap.find("title").text()).toEqual("TDD playground");
+  });
   it("renders correct title", () => {
     const wrap = shallow(<Layout title={"Page title"} />);
     expect(wrap.find("title").text()).toEqual("Page title");

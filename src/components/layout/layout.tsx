@@ -1,14 +1,13 @@
-import { Children } from "react";
 
 interface LayoutProps {
-  title: string;
+  title?: string;
 }
 
 export const Layout: React.FC<LayoutProps> = ({ title, children }) => {
   return (
     <>
       <head>
-        <title>{title}</title>
+        <title>{title ? title : 'TDD playground'}</title>
       </head>
       <main>{children}</main>
     </>
