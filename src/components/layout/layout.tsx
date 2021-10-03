@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 
 interface LayoutProps {
   title?: string;
@@ -6,9 +7,10 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ title, children }) => {
   return (
     <>
-      <head>
-        <title>{title ? title : 'TDD playground'}</title>
-      </head>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{title ? title : "TDD playground"}</title>
+      </Helmet>
       <main>{children}</main>
     </>
   );

@@ -1,7 +1,7 @@
 import {shallow } from "enzyme";
 import React from "react";
 
-import TODO from "./todo";
+import TODO from "../pages/todo";
 
 describe("TODO page", () => {
   it("does render", () => {
