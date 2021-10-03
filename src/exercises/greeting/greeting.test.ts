@@ -26,6 +26,11 @@ describe("Greeting tests", () => {
       "Hello, Amy and Charlotte. AND HELLO BRIAN!"
     );
   });
+  it("say hello separately to many shouters and many quiet people", () => {
+    expect(greeting("Amy", "BRIAN", "Charlotte","DAVID", "Francis", "FRANK")).toEqual(
+      "Hello, Amy, Charlotte and Francis. AND HELLO BRIAN, DAVID AND FRANK!"
+    );
+  });
 });
 
 describe("Filter", () => {
