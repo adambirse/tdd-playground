@@ -5,7 +5,13 @@ export const add = (expression: string): number => {
     .replace(/(\n)/gm, delimiter)
     .split(delimiter)
     .map((v) => Number(v))
-    .reduce((sum, current) => sum + current, 0);
+    .reduce((sum, current) => {
+      if (current < 1000) {
+        return sum + current;
+      } else {
+        return sum;
+      }
+    }, 0);
 };
 
 function extractOptions(expression: string) {

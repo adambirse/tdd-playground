@@ -22,4 +22,7 @@ describe("String calculator", () => {
   it("split on custom delimiter many numbers", () => {
     expect(add(`//;\n1;2;44;2`)).toEqual(49);
   });
+  it("ignore numbers bigger than 1000 ", () => {
+    expect(add("1,2,1000,5,6,1,1000")).toEqual(15);
+  });
 });
