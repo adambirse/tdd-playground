@@ -13,4 +13,7 @@ describe("String calculator", () => {
   it("handle many numbers", () => {
     expect(add("1,2,5,6,1")).toEqual(15);
   });
+  it("split on new lines", () => {
+      expect(add(`1\n2,3`)).toEqual(6);
+  })
 });
