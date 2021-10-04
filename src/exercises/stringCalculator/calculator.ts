@@ -1,5 +1,6 @@
 export const add = (numbers: string): number => {
-    if(numbers === "") {
-    return 0;
-    }
-}
+  return numbers
+    .split(",")
+    .map((v) => Number(v))
+    .reduce((sum, current) => sum + current, 0);
+};
