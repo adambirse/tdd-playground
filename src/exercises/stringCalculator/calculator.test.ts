@@ -14,6 +14,12 @@ describe("String calculator", () => {
     expect(add("1,2,5,6,1")).toEqual(15);
   });
   it("split on new lines", () => {
-      expect(add(`1\n2,3`)).toEqual(6);
-  })
+    expect(add(`1\n2,3`)).toEqual(6);
+  });
+  it("split on custom delimiter", () => {
+    expect(add(`//;\n1;2`)).toEqual(3);
+  });
+  it("split on custom delimiter many numbers", () => {
+    expect(add(`//;\n1;2;44;2`)).toEqual(49);
+  });
 });
