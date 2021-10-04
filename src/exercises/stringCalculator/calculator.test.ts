@@ -7,7 +7,10 @@ describe("String calculator", () => {
   it("handle single number string", () => {
     expect(add("1")).toEqual(1);
   });
-  it("handle single number string", () => {
+  it("handle two number string", () => {
     expect(add("1,2")).toEqual(3);
+  });
+  it("handle many numbers", () => {
+    expect(add("1,2,5,6,1")).toEqual(15);
   });
 });
