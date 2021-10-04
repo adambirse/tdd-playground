@@ -26,9 +26,25 @@ function extractOptions(expression: string) {
   return { numbers, delimiter };
 }
 
-function extractOptionalDelimiter(numbers: string) {
-  const delimterAndRest = numbers.split("\n");
-  if (delimterAndRest.length > 1) {
-    return delimterAndRest[0].substr(2);
+const extractOptionalDelimiter = (numbers: string) => {
+  if (hasDelimiter(numbers)) {
+    const delimiterSection = splitDelimiter(numbers)[0];
+    if (isSingleCharacterDelimiter(delimiterSection)) {
+      return delimiterSection.substring(2);
+    } else {
+      return delimiterSection.substring(3, delimiterSection.length - 1);
+    }
   }
-}
+};
+
+const hasDelimiter = (numbers: string) => {
+  return splitDelimiter(numbers).length > 1;
+};
+
+const splitDelimiter = (numbers: string) => {
+  return numbers.split("\n");
+};
+
+const isSingleCharacterDelimiter = (delimter: string) => {
+  return delimter.length <= 3;
+};
