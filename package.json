@@ -29,7 +29,7 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
-    "@types/node": "^16.11.17",
+    "@types/node": "^16.11.19",
     "@types/react": "^17.0.38",
     "next": "^10.2.3",
     "react": "16.13.1",
@@ -55,7 +55,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "format-package": "^6.1.0",
     "husky": "^7.0.4",
-    "jest": "^27.4.5",
+    "jest": "^27.4.7",
     "jsdom": "16.4.0",
     "jsdom-global": "3.0.2",
     "lint-staged": "^11.2.6",
