@@ -29,7 +29,7 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
-    "@types/node": "^16.11.22",
+    "@types/node": "^16.11.24",
     "@types/react": "^17.0.39",
     "next": "^10.2.3",
     "react": "16.13.1",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.17.0",
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.0",
     "@types/enzyme": "^3.10.11",
@@ -55,7 +55,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "format-package": "^6.1.0",
     "husky": "^7.0.4",
-    "jest": "^27.5.0",
+    "jest": "^27.5.1",
     "jsdom": "16.4.0",
     "jsdom-global": "3.0.2",
     "lint-staged": "^11.2.6",
