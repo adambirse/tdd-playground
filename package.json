@@ -29,7 +29,7 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
-    "@types/node": "^16.11.33",
+    "@types/node": "^16.11.35",
     "@types/react": "^17.0.45",
     "next": "^10.2.3",
     "react": "16.13.1",
@@ -44,7 +44,7 @@
     "@babel/register": "^7.17.7",
     "@types/enzyme": "^3.10.12",
     "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/jest": "^27.5.0",
+    "@types/jest": "^27.5.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "enzyme": "^3.11.0",
