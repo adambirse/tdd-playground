@@ -29,8 +29,8 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
-    "@types/node": "^16.18.39",
-    "@types/react": "^17.0.62",
+    "@types/node": "^16.18.40",
+    "@types/react": "^17.0.64",
     "next": "^10.2.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -38,9 +38,9 @@
     "typescript": "^4.9.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.22.9",
-    "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.9",
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
     "@babel/register": "^7.22.5",
     "@types/enzyme": "^3.10.13",
     "@types/enzyme-adapter-react-16": "^1.0.6",
