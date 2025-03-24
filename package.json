@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@types/node": "^16.18.126",
-    "@types/react": "^17.0.83",
+    "@types/react": "^17.0.84",
     "next": "^10.2.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
