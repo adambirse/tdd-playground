@@ -1,6 +1,6 @@
 # tdd-playground
 
-A nextjs playground for practicing TDD
+A nextjs playground for practicing TDD.
 
 ## Material
 
