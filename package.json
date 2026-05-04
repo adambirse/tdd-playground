@@ -40,8 +40,8 @@
   "devDependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
-    "@babel/register": "^7.28.6",
+    "@babel/preset-env": "^7.29.3",
+    "@babel/register": "^7.29.3",
     "@types/enzyme": "^3.10.19",
     "@types/enzyme-adapter-react-16": "^1.0.9",
     "@types/jest": "^27.5.2",
